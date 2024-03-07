@@ -1,0 +1,63 @@
+[
+  {
+    "id": "0",
+    "title": "Simultaneous wastewater treatment, desalination and bio-electricity generation using Microbial Desalination Cells (MDCs) with algal biocathode",
+    "advisor": "Prof. M.M. Ghangrekar, Environmental Engineering",
+    "year": "06/2016 - 04/2017",
+    "bullets": [
+      "Investigated the performance of a five-chambered MDC fed with saline water having two different salt concentrations in desalination chamber, as well as MDC operated without algae in catholyte",
+      "Results inferred that algal-based MDC can provide a promising and sustainable approach for wastewater treatment with the capability of simultaneous desalination, algal production and electrical energy recovery",
+      "Literature survey exposed me to potential application of an algal-based microbial fuel cell that can support algal growth along with desalination of saline water"
+    ],
+    "special": "Published in journal of MRS Advances",
+    "link": "https://doi.org/10.1557/adv.2019.170"
+  },
+  {
+    "id": "1",
+    "title": "Web app for operation of UASB reactor for industrial wastewater treatment",
+    "advisor": "Prof. M.M. Ghangrekar, Environmental Engineering",
+    "year": "01/2017 - 04/2017",
+    "bullets": [
+      "Programmed a web application dashboard to provide literature support for design and operation guidelines of UASBR based on the optimum performance reported in research papers",
+      "Acquired the proficiency in integrating research findings to a web application and later the web app was professionally used by the industries for operation of UASBR plant"
+    ],
+    "special": "hidden",
+    "link": "https://pankajiitkgp.github.io/uasbr/"
+  },
+  {
+    "id": "2",
+    "title": "CNN model for image classification with TensorFlow using CIFAR-10 dataset",
+    "advisor": "Prof. S.K. Barai, Soft computing tools for Engineering",
+    "year": "01/2016 - 04/2016",
+    "bullets": [
+      "Built a convolutional neural network (CNN) model consists of multiple layers for image detection in TensorFlow, a python library and used CIFAR-10 dataset for training and testing",
+      "Model tested by 10,000 images and it showed a prediction accuracy of 73%"
+    ],
+    "special": "hidden",
+    "link": "hidden"
+  },
+  {
+    "id": "3",
+    "title": "Statistical analysis of road traffic crash data of National Highway 6 (NH-6)",
+    "advisor": "Prof. Sudeshna Mitra, Transportation Engineering",
+    "year": "12/2014",
+    "bullets": [
+      "Studied geometric drawings & crash data of 65 Km stretch of NH-6 (four lane), and correlated geometric features & crash data to detect the influence on road accidents",
+      "Correlation indicated that curved segments with service roads are found to be safer, the presence of median opening recorded higher crashes, and traffic operations at horizontal curves do not pose additional hazards"
+    ],
+    "special": "hidden",
+    "link": "hidden"
+  },
+  {
+    "id": "4",
+    "title": "Traffic optimization and assessment model",
+    "advisor": "Prof. Bhargav Mitra, Transportation Engineering",
+    "year": "01/2016 - 04/2016",
+    "bullets": [
+      "Designed a solution to find the minimum spanning tree using Kruskal algorithm for shortest path determination between the two points to minimize transit cost",
+      "Developed a web app for visualization of minimum spanning tree using krushkal algorithm"
+    ],
+    "special": "hidden",
+    "link": "https://pankajiitkgp.github.io/krushkal/"
+  }
+]
