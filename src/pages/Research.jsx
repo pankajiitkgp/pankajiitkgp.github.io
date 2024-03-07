@@ -3,7 +3,7 @@ import ProjectList from '../assets/database/ProjectList.json'
 
 const Blog = () => {
   return (
-    <section className="bg-slate-50 pb-16">
+    <section className="pb-16">
       <div className='relative px-4 sm:px-8 lg:px-12'>
         <header class="py-16 text-center">
           <h1 class="mb-4 text-2xl sm:text-3xl tracking-tight text-indigo-500 font-bold">

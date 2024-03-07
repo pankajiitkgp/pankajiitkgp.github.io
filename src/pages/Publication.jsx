@@ -3,7 +3,7 @@ import Journals from "../assets/database/JournalList.json"
 
 const Publication = () => {
   return (
-    <section className="bg-slate-50 pb-16">
+    <section className="pb-16">
       <div className='relative px-4 sm:px-8 lg:px-12 max-w-4xl mx-auto'>
         <header className="py-16 text-center">
           <h1 className="mb-4 text-2xl sm:text-3xl tracking-tight text-indigo-500 font-bold">
