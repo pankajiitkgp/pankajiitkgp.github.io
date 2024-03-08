@@ -3,7 +3,7 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid"
 
 const Home = () => {
   return (
-    <section>
+    <section className="py-8 sm:py-0">
       <div className="sm:pt-20 sm:pb-12">
         <div className="mx-auto w-full max-w-7xl lg:px-8">
           {/* <div className="mx-auto py-8 max-w-2xl">
