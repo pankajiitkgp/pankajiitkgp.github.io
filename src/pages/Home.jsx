@@ -20,7 +20,7 @@ const Home = () => {
               </div>
             </a>
           </div> */}
-          <div className="sm:flex sm:flex-row justify-center items-center px-16 sm:px-6 lg:px-16">
+          <div className="sm:flex sm:flex-row justify-center items-center px-4 sm:px-6 lg:px-16">
             <div className="sm:basis-1/2 size-full px-4 justify-center items-center">
               <img src="environment.jpg" className="rounded shadow-md" />
             </div>
