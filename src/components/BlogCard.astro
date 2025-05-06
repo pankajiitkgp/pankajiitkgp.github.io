@@ -24,7 +24,7 @@ const authors = await parseAuthors(entry.data.authors ?? [])
 >
   <Link
     href={`/${entry.collection}/${entry.id}`}
-    class="flex flex-col gap-4 sm:flex-row"
+    class="flex flex-col items-center gap-4 sm:flex-row sm:items-start"
   >
     {
       entry.data.image && (
