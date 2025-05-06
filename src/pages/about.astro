@@ -1,0 +1,55 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
+import Layout from '@/layouts/Layout.astro'
+import { getAllProjects } from '@/lib/data-utils'
+
+const projects = await getAllProjects()
+---
+
+<Layout>
+  <PageHead slot="head" title="About" />
+  <Breadcrumbs items={[{ label: 'About', icon: 'lucide:info' }]} />
+
+  <section>
+    <div class="min-w-full">
+      <div class="prose mb-8">
+        <p class="my-2">
+          A graduate of <Link
+            href="https://iitkgp.ac.in"
+            class="text-foreground"
+            underline
+            external>IIT Kharagpur</Link
+          > curious about the world and grounded in purpose. I believe in the timeless
+          Sanskrit wisdom: <span
+            style="font-family: 'Noto Serif Devanagari', serif;"
+            >योगः कर्मसु कौशलम्</span
+          > —
+          <em
+            >योग का अर्थ केवल ध्यान या आसन नहीं, बल्कि अपने कर्म में कौशल और
+            समर्पण ही सच्चा योग है।</em
+          >
+        </p>
+        <p class="my-2">
+          This verse from the <Link
+            href="https://en.wikipedia.org/wiki/Bhagavad_Gita"
+            class="text-foreground"
+            underline
+            external><em>Bhagavad Gītā</em></Link
+          > (Chapter 2, Verse 50) reminds me that excellence in action, done mindfully
+          and without attachment, is a form of spiritual practice. Whether I’m diving
+          into environmental research, coding a model, or scribbling thoughts here,
+          I try to align my work with this principle. For me, it's not just a quote
+          — it’s a way of being. ✨
+        </p>
+      </div>
+
+      <h2 class="mb-4 text-2xl font-medium">Example Projects Listing</h2>
+      <div class="flex flex-col gap-4">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+</Layout>

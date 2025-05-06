@@ -1,0 +1,80 @@
+---
+import BlogCard from '@/components/BlogCard.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import { buttonVariants } from '@/components/ui/button'
+import { SITE } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+import { getRecentPosts } from '@/lib/data-utils'
+
+const blog = await getRecentPosts(SITE.featuredPostCount)
+---
+
+<Layout>
+  <PageHead slot="head" title="Home" />
+  <section>
+    <div class="rounded-lg border">
+      <div class="flex flex-col space-y-1.5 p-6">
+        <h3 class="text-3xl leading-none font-medium">योगः कर्मसु कौशलम्</h3>
+        <p class="text-muted-foreground text-sm">
+          /yo·gaḥ kar·ma·ṣu kau·śa·lam/ &bull; <span class="font-medium"
+            >sanskrit origin</span
+          >
+        </p>
+      </div>
+      <div class="p-6 pt-0">
+        <p class="text-muted-foreground mb-2 text-sm">
+          Hi, I'm Pankaj Sarkar. I'm a graduate of <Link
+            href="https://iitkgp.ac.in"
+            class="text-foreground"
+            underline
+            external>IIT Kharagpur</Link
+          > curious about the world and grounded in purpose. I believe in the timeless
+          Sanskrit wisdom: <span
+            style="font-family: 'Noto Serif Devanagari', serif;"
+            >योगः कर्मसु कौशलम्</span
+          > —
+          <em
+            >योग का अर्थ केवल ध्यान या आसन नहीं, बल्कि अपने कर्म में कौशल और
+            समर्पण ही सच्चा योग है।</em
+          >
+        </p>
+        <p class="text-muted-foreground text-sm">
+          This verse from the <Link
+            href="https://en.wikipedia.org/wiki/Bhagavad_Gita"
+            class="text-foreground"
+            underline
+            external><em>Bhagavad Gītā</em></Link
+          > (Chapter 2, Verse 50) reminds me that excellence in action, done mindfully
+          and without attachment, is a form of spiritual practice. Whether I’m diving
+          into environmental research, coding a model, or scribbling thoughts here,
+          I try to align my work with this principle. For me, it's not just a quote
+          — it’s a way of being. ✨
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="flex flex-col gap-y-4">
+    <h2 class="text-2xl font-medium">Latest posts</h2>
+    <ul class="flex flex-col gap-y-4">
+      {
+        blog.map((post) => (
+          <li>
+            <BlogCard entry={post} />
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex justify-center">
+      <Link
+        href="/blog"
+        class={buttonVariants({ variant: 'ghost' }) + ' group'}
+      >
+        See all posts <span
+          class="ml-1.5 transition-transform group-hover:translate-x-1"
+          >&rarr;</span
+        >
+      </Link>
+    </div>
+  </section>
+</Layout>

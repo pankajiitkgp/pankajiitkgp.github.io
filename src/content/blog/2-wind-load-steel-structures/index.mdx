@@ -1,0 +1,245 @@
+---
+title: 'Wind load calculation on a steel structure: Elevated water tank'
+description: Wind load calculation on steel framed structure for elevated water reservior as per IS-875(Part-3)-2015 is considered.
+date: 2025-05-06
+tags: ['Structural Engineering', 'Strutural Analysis']
+image: './building-stages-skyscraper.png'
+authors: ['pankaj']
+draft: true
+---
+
+import Callout from '@/components/Callout.astro'
+import { Icon } from 'astro-icon/components'
+
+## Introduction
+
+Steel industry is growing rapidly in almost all parts of the world. Time is most important parameter from the construction point of view and steel structure is built in a short period. Steel structures are more advantageous than that of RC structure, because they have better response (Prakarsh et al, 2015) [1].
+
+<Callout variant="exercise">
+
+Wind pressure and forces on an elevated storage reservoir for water of capacity of 1 lakh litres is to be calculated using code IS-875: 2015 (Part-3) [2] considering steel framed structure.
+
+</Callout>
+
+**Details of the elevated water reservior:**
+
+- For capacity of 1,00,000 litres of water, Sheet Molding Compound (SMC) panel tank of size 6.0 m square by 3.0 m deep is considered.
+- A typical steel structure consists of four bays of plan dimensions 4.40 m x 4.40 m and elevation dimensions of one bay is 4.40 m x 4.00 m.
+- Structure having overall elevation of 16.0 m (excluding tank).
+- Elevation and plan view of the steel tower shown below.
+
+![Elevation and plan view](./wind-load-image-1.png 'Elevation and plan view')
+
+<Callout title="Sectional properties" variant="note">
+Consideration for structural members are given below.
+
+| Member             | Section        | Length L, m | Width b, m |
+| :----------------: | :------------: | :---------: | :--------: |
+| Column member      | ISA 200x200x12 | 4.0         | 0.20       |
+| Horizontal member  | ISA 110x110x10 | 4.40        | 0.10       |
+| Diagonal bracing   | ISA 90x90x10   | 5.94        | 0.090      |
+| Horizontal bracing | ISA 65x65x8    | 6.23        | 0.065      |
+
+</Callout>
+
+**Design parameters:**
+
+- Wind zone: Wind zone-II, Basic wind speed, V<sub>b</sub> = 39 m/s, (IS:875-Part 3, Cl. 6.2, Fig. 1)
+- Terrain Category: Terrain Category 3 considering residential area (Cl. 6.3.2.1 (c)).
+
+**Design factors:**
+
+- Risk factor coefficient factor, k<sub>1</sub> = 1.06 considering important buildings (Cl. 6.3.1, Table 1).
+- Terrain and height factor, k<sub>2</sub> varies with height (Cl. 6.3.2.2, Table 2).
+- Topography factor, k<sub>3</sub> = 1.0, (Cl. 6.3.3.1).
+- Importance factor for cyclonic region, k<sub>4</sub> = 1.0, (Cl. 6.3.4).
+- Wind directionality factor, K<sub>d</sub> = 0.9, (Cl. 7.1.1).
+- Area average factor, (Cl. 7.2.2, Table 4)
+  - K<sub>a</sub> = 1.0, for tower portion
+  - K<sub>a</sub> = 1.0, for tank portion, as exposed area of tank = 6x3 = 18 m<sup>2</sup>
+
+**Design wind pressure:**
+
+Design wind speed,
+$$
+   \tag{Cl. 6.3}
+   V_z = V_bk_1k_2k_3k_4 = 39*1.06*k_2*1.0*1.0 = 41.34k_2
+$$
+
+Wind pressure,
+$$
+   \tag{Cl. 7.2}
+   p_z = 0.6\left(V_z\right)^{\smash{2}}
+$$
+
+Design wind pressure,
+
+$$
+   \tag{Cl. 7.2}
+   p_d = p_zK_dK_a
+$$
+
+Variation in design wind speed & pressure with height
+
+| Height from ground, m |  K2  | Vz, m/s | Pz, KN/m2) | Pd, (KN/m2) |          |
+| :-------------------: | :--: | :-----: | :--------: | :---------: | :------: |
+|           15          | 0.97 |   40.1  |    0.96    |     0.87    | For tank |
+|           16          | 0.98 |  40.51  |    0.98    |     0.89    |          |
+|           22          | 1.02 |  42.17  |    1.07    |     0.96    |          |
+|           15          | 0.97 |   40.1  |    0.96    |     0.87    | For tank |
+
+![Wind pressure with height Plot](./wind-load-image-2.png 'Wind pressure with height Plot')
+
+**Wind load calculations:**
+
+Overall horizontal force on the tank:
+
+$$
+F_{tank} = C_fA_ep_d
+$$
+
+$$
+\begin{gather}
+   \tag{Table 20}
+   \frac{b}{d} = \frac{6}{6} = 1.0\\
+   V_zb = 42.17\ast6 = 253.0 > 10 \\
+   \frac{h}{b}= \frac{3}{6} = 0.50\\
+   \textmd {hence, }
+   C_f = 0.50\\
+   F_{tank} = 0.5\ast6\ast3\ast0.96 = 8.64\space kN
+\end{gather}
+$$
+
+Overall horizontal force on the tower members:
+
+Solidity ratio of a frame,
+
+$$
+\Phi = \frac{net\space area}{total\space area}
+$$
+
+Total area,
+
+$$
+= 4\ast4.4\ast4 = 70.40\space m_2
+$$
+
+Net area of the one frame
+
+$$
+= 4\ast(4\ast2\ast0.2 + 4.4\ast0.11 + 4\ast2.97\ast0.09) = 12.60\space 𝑚2
+$$
+
+Solidity ratio of one frame,
+
+$$
+\Phi = \frac{12.60}{70.40} = 0.18
+$$
+
+Wind forces on the members,
+
+$$
+F_{members} = C_f\ast L\ast b\ast p_d
+$$
+
+Where, L = length of member, and b = width of the member
+
+The structure is multiple bay frame of steel sections and Cl. 7.4.3.5 with table 33 is applicable for calculation of C<sub>f</sub> and the value is linearly interpolated.
+
+$$
+\tag{Table 33}
+C_f= 3.41
+$$
+
+ <div class="table-container">
+   <table class="table is-bordered is-fullwidth">
+   <thead>
+      <tr class="head">
+         <th colspan="6">Summary of wind forces and pressure</th>
+      </tr>
+      <tr style="text-align:center">
+         <th>Height, m</th>
+         <th>Members</th>
+         <th>Length L, m</th>
+         <th>Width b, m</th>
+         <th>Wind pressure, kN/m<sup>2</sup></th>
+         <th>Wind force, kN</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td rowspan="3">Up to 10</td>
+         <td>Column member</td>
+         <td>4</td>
+         <td>0.2</td>
+         <td rowspan="3">0.76</td>
+         <td>2.07</td>
+      </tr>
+      <tr>
+         <td>Horizontal member</td>
+         <td>4.4</td>
+         <td>0.11</td>
+         <td>1.25</td>
+      </tr>
+      <tr>
+         <td>Diagonal bracing</td>
+         <td>5.94</td>
+         <td>0.09</td>
+         <td>1.39</td>
+      </tr>
+      <tr>
+         <td rowspan="3">10 to 15</td>
+         <td>Column member</td>
+         <td>4</td>
+         <td>0.2</td>
+         <td rowspan="3">0.87</td>
+         <td>2.61</td>
+      </tr>
+      <tr>
+         <td>Horizontal member</td>
+         <td>4.4</td>
+         <td>0.11</td>
+         <td>1.31</td>
+      </tr>
+      <tr>
+         <td>Diagonal bracing</td>
+         <td>5.94</td>
+         <td>0.09</td>
+         <td>1.59</td>
+      </tr>
+      <tr>
+         <td rowspan="3">above 15</td>
+         <td>Column member</td>
+         <td>4</td>
+         <td>0.2</td>
+         <td rowspan="3">0.89</td>
+         <td>2.43</td>
+      </tr>
+      <tr>
+         <td>Horizontal member</td>
+         <td>4.4</td>
+         <td>0.11</td>
+         <td>1.47</td>
+      </tr>
+      <tr>
+         <td>Diagonal bracing</td>
+         <td>5.94</td>
+         <td>0.09</td>
+         <td>1.62</td>
+      </tr>
+      <tr>
+         <td>above 15</td>
+         <td>Tank</td>
+         <td>6</td>
+         <td>3</td>
+         <td>0.89</td>
+         <td>8.64</td>
+      </tr>
+   </tbody>
+   </table>
+</div>
+
+**References**
+
+1. Prakarsh Sangave, Nikhil Madur, Sagar Waghmare, Rakesh Shete, Vinayak Mankondi,Vinayak Gundla (2015). Comparative Study of Analysis and Design of R.C. and Steel Structures. International Journal of Scientific & Engineering Research, Volume 6, Issue 2, February-2015
+2. IS: 875, (Part-3), (2015). “Indian Standard Code of Practice for Design Loads (other than Earthquake) for Buildings and Structures” Bureau of Indian Standards, New Delhi.
